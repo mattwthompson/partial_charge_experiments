@@ -1,4 +1,4 @@
-name: run script
+name: gen_elf1_conf
 
 on:
   workflow_dispatch:
