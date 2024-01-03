@@ -32,8 +32,9 @@ jobs:
     - name: "run script"
       run: python scripts/get-conformer.py
     - name: "store"
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
+        name: ${{matrix.os}}-${{ matrix.python-version}}-conformer
         path: ./*.sdf
         retention-days: 7
 
