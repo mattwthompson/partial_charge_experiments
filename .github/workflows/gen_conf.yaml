@@ -35,6 +35,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{matrix.os}}-${{ matrix.python-version}}-conformer
-        path: ./*.sdf
+        path: ./conformers/
         retention-days: 7
 
