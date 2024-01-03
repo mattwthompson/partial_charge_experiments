@@ -1,0 +1,7 @@
+name: test_env
+channels:
+  - jaimergp/label/unsupported-cudatoolkit-shim
+  - conda-forge
+dependencies:
+  - openff-toolkit>=0.13.0
+  - rdkit
