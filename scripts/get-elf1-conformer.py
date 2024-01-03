@@ -14,8 +14,8 @@ for m in rdmols:
     mol = Molecule.from_rdkit(m)
     mol._conformers = None
     mol.generate_conformers(
-        n_conformers=500,
-        rms_cutoff=0.25 * unit.angstrom,
+        n_conformers=1000,
+        rms_cutoff=0.1 * unit.angstrom,
         toolkit_registry=rdkit_wrapper.RDKitToolkitWrapper(),
     )
 
