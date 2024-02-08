@@ -7,4 +7,5 @@ dependencies:
   - openff-nagl-base>=0.3.3
   - rdkit
   - pip:
+    - espaloma_charge
     - openff-nagl-models>=0.1.1

@@ -12,6 +12,7 @@ supp = Chem.SDMolSupplier("datafiles/CN.sdf", removeHs=False)
 m = [Molecule.from_rdkit(i) for i in supp][0]
 
 with toolkit_registry_manager(amber_rdkit):
+    print(m.partial_charges)
     m.assign_partial_charges(
         partial_charge_method="openff-gnn-am1bcc-0.1.0-rc.1.pt",
         toolkit_registry=NAGLToolkitWrapper(),
