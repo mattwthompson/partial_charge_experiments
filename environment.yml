@@ -4,4 +4,7 @@ channels:
   - conda-forge
 dependencies:
   - openff-toolkit>=0.13.0
+  - openff-nagl-base>=0.3.3
   - rdkit
+  - pip:
+    - openff-nagl-models>=0.1.1

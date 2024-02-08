@@ -1,0 +1,34 @@
+name: gen_conf
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  hif2a:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.10", "3.11"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: setup_micromamba
+      uses: mamba-org/setup-micromamba@v1
+      with:
+        environment-file: environment.yml
+        environment-name: test_env
+        create-args: >-
+          python=${{ matrix.python-version }}
+        init-shell: bash
+    - name: "run script"
+      run: python scripts/run-nagl.py
+
