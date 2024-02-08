@@ -1,4 +1,4 @@
-name: gen_conf
+name: run_nagl
 
 on:
   workflow_dispatch:
