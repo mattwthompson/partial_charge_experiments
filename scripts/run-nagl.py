@@ -7,7 +7,7 @@ from openff.toolkit.utils.toolkit_registry import toolkit_registry_manager, Tool
 amber_rdkit = ToolkitRegistry([RDKitToolkitWrapper(), AmberToolsToolkitWrapper(), NAGLRDKitToolkitWrapper()])
 
 with toolkit_registry_manager(amber_rdkit):
-    m = Molecule.from_smiles('CCC')
+    m = Molecule.from_smiles('CN')
     m.assign_partial_charges(
         partial_charge_method="openff-gnn-am1bcc-0.1.0-rc.1.pt",
         toolkit_registry=NAGLToolkitWrapper(),
