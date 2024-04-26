@@ -34,4 +34,4 @@ jobs:
 
     - name: "run antechamber"
       run:
-        antechamber
+        antechamber -i datafiles/CN.sdf -fi sdf -c bcc -at gaff2 -o test.mol2 -fo mol2
