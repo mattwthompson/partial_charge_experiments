@@ -36,7 +36,7 @@ jobs:
       run:
         antechamber -i datafiles/CN.sdf -fi sdf -c bcc -at gaff2 -o test.mol2 -fo mol2
 
-    - name: "check sqm output"
+    - name: "check sqm input/output files"
       if: always()
       run:
-        cat sqm.out
+        cat sqm.in sqm.out
