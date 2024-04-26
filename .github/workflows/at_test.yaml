@@ -19,7 +19,7 @@ jobs:
       matrix:
         os: [macos-12, macos-13]
         ambertools-version: [21, 22, 23]
-        python-version: ["3.11"]
+        python-version: ["3.9"]
     steps:
     - uses: actions/checkout@v4
     - name: setup_micromamba
@@ -34,4 +34,4 @@ jobs:
 
     - name: "run antechamber"
       run:
-        antechamber --help
+        antechamber
