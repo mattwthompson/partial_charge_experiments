@@ -33,10 +33,10 @@ jobs:
         init-shell: bash
 
     - name: "run antechamber"
-      continue-on-error: true
       run:
         antechamber -i datafiles/CN.sdf -fi sdf -c bcc -at gaff2 -o test.mol2 -fo mol2
 
     - name: "check sqm output"
+      if: always()
       run:
         cat sqm.out
