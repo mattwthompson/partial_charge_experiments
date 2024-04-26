@@ -1,0 +1,37 @@
+name: run_antechamber
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  hif2a:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-12, macos-13]
+        ambertools-version: [21, 22, 23]
+        python-version: ["3.11"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: setup_micromamba
+      uses: mamba-org/setup-micromamba@v1
+      with:
+        environment-file: at-env.yml
+        environment-name: test_env
+        create-args: >-
+          python=${{ matrix.python-version }}
+          ambertools=${{ matrix.ambertools-version }}
+        init-shell: bash
+
+    - name: "run antechamber"
+      run:
+        antechamber --help
