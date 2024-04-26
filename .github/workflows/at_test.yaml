@@ -38,5 +38,6 @@ jobs:
 
     - name: "check sqm input/output files"
       if: always()
-      run:
-        cat sqm.in sqm.out
+      run: | 
+        cat sqm.in
+        cat sqm.out
